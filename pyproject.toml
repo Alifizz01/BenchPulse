@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "benchpulse"
+version = "1.0.0"
+description = "BenchPulse - see which HiL bench PCs are on, who is using them, and book them. Browser dashboard, no install for colleagues."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Muhamad Alif Izzuwan Bin Ibrahim" }]
+dependencies = []
+
+[project.scripts]
+benchpulse = "benchpulse.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["benchpulse*"]
+
+[tool.setuptools.package-data]
+benchpulse = ["web/*"]

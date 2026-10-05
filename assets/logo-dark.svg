@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 80" width="330" height="80">
+  <title>BenchPulse</title>
+  <g transform="translate(8 8)">
+  <rect width="64" height="64" rx="14" fill="#1B2430"/>
+  <!-- three bench PCs: online, in use, missing -->
+  <rect x="10" y="12" width="12" height="9" rx="2" fill="#2A3442"/><circle cx="16" cy="16.5" r="2.6" fill="#3DD68C"/>
+  <rect x="26" y="12" width="12" height="9" rx="2" fill="#2A3442"/><circle cx="32" cy="16.5" r="2.6" fill="#FF6B66"/>
+  <rect x="42" y="12" width="12" height="9" rx="2" fill="#2A3442"/><circle cx="48" cy="16.5" r="2.6" fill="#7D8795"/>
+  <!-- the heartbeat that ties them together -->
+  <path d="M8 42 H20 L24 33 L30 52 L36 28 L40 42 H56" fill="none" stroke="#FF6B66" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+  <text x="88" y="49" font-family="Bahnschrift, 'DIN Alternate', 'Arial Narrow', sans-serif" font-size="40" font-weight="600" fill="#F1F3F6" letter-spacing="0.5">Bench<tspan fill="#FF6B66">Pulse</tspan></text>
+  <text x="90" y="68" font-family="Bahnschrift, 'DIN Alternate', 'Arial Narrow', sans-serif" font-size="10" fill="#9AA4B0" letter-spacing="1.7">HIL BENCH PC MONITOR</text>
+</svg>

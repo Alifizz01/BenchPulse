@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BenchPulse</title>
+  <link rel="icon" href="logo-mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><img src="logo-mark.svg" alt=""><span>Bench<b>Pulse</b></span></div>
+  <div class="counts" id="counts"></div>
+  <div class="tools">
+    <input id="search" type="search" placeholder="Find a PC, person, note…  ( / )" autocomplete="off">
+    <span class="updated" id="updated"></span>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="section-head">
+      <h2>Bench PCs</h2>
+      <div class="filters" id="filters">
+        <button data-f="all" class="on">All</button>
+        <button data-f="online">Online</button>
+        <button data-f="in_use">In use</button>
+        <button data-f="missing">Idle / missing</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden></p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Schedule</h2>
+      <div class="weeknav">
+        <button id="prevWeek" title="Previous week">‹</button>
+        <button id="thisWeek">This week</button>
+        <button id="nextWeek" title="Next week">›</button>
+        <span id="weekLabel"></span>
+      </div>
+      <button class="primary" id="newBooking">+ Reserve a PC</button>
+    </div>
+    <div class="schedule-wrap"><table class="schedule" id="schedule"></table></div>
+    <p class="hint">Click an empty cell to book that PC on that day. Click a booking to see or cancel it.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Who's who</h2>
+      <p class="sub">Remote Desktop tells us the IP and computer name it's coming from. Put a name to them once and the board shows who is on each PC.</p>
+    </div>
+    <form class="people-form" id="peopleForm">
+      <input name="key" placeholder="IP or computer name, e.g. 10.20.5.23 or LAPTOP-MAX" required maxlength="64">
+      <input name="person" placeholder="Person" required maxlength="60">
+      <button class="primary">Save</button>
+    </form>
+    <table class="people" id="people"></table>
+  </section>
+</main>
+
+<footer>BenchPulse <span id="version"></span> · <a href="https://github.com/Alifizz01/BenchPulse">source</a> · API: <code>/api/board</code></footer>
+
+<dialog id="bookDialog">
+  <form method="dialog" id="bookForm">
+    <h3>Reserve a PC</h3>
+    <label>PC <select name="pc" required></select></label>
+    <label>Your name <input name="who" required maxlength="60" autocomplete="name"></label>
+    <div class="row">
+      <label>Day <input name="day" type="date" required></label>
+      <label>From <input name="from" type="time" required step="900"></label>
+      <label>To <input name="to" type="time" required step="900"></label>
+    </div>
+    <label>What for <input name="purpose" maxlength="200" placeholder="e.g. CAN fault-injection campaign"></label>
+    <p class="error" id="bookError"></p>
+    <div class="actions">
+      <button value="cancel" formnovalidate>Cancel</button>
+      <button class="primary" id="bookSave" value="save">Reserve</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="infoDialog">
+  <form method="dialog">
+    <h3 id="infoTitle"></h3>
+    <div id="infoBody"></div>
+    <div class="actions">
+      <button class="danger" id="infoCancel" value="delete">Cancel booking</button>
+      <button class="primary" value="close">Close</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
